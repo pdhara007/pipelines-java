@@ -6,8 +6,10 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
+pool:  
+ name: MyAgentPool
+ demands:
+  - agent.name -equals WinAgentSelf
 
 steps:
 - task: Maven@3
