@@ -23,10 +23,13 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-
+- task: CmdLine@2
+  displayName:  'copy war'
+  inputs:
+    script: 'copy $(System.DefaultWorkingDirectory)/target/*.war $(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/target/*.war'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop-java'
     publishLocation: 'Container'
