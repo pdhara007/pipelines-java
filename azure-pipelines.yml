@@ -26,7 +26,7 @@ steps:
 - task: CmdLine@2
   displayName:  'copy war'
   inputs:
-    script: 'copy $(System.DefaultWorkingDirectory)/target/*.war $(Build.ArtifactStagingDirectory)'
+    script: 'copy $(System.DefaultWorkingDirectory)\target\*.war $(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
   inputs:
