@@ -22,9 +22,11 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/target/'
     ArtifactName: 'drop-java'
     publishLocation: 'Container'
